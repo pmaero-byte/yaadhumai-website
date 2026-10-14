@@ -294,20 +294,26 @@
             <tr>
               <td><strong>Local Decoding Speed (Qwen 3.8 27B Q4_0)</strong></td>
               <td>9.95 – 13.02 tokens/sec (Memory Bus Bound)</td>
-              <td><strong>30+ tokens/sec Sustained</strong> (41.37 tok/s 64-tok · 79.40 tok/s Peak)</td>
+              <td><strong>30.3 – 33.7 tok/s Sustained</strong> (41.37 tok/s 64-tok · 79.40 tok/s Peak)</td>
               <td><span class="card-tag tag-emerald" style="margin:0;">3.1× – 6.10× Throughput Speedup</span></td>
             </tr>
             <tr>
+              <td><strong>Physical Model Footprint (<code>Qwen3.8-27B-Q4_0.gguf</code>)</strong></td>
+              <td>16,056,478,688 bytes (16.06 GB / 14.95 GiB) + 68.7 GB Uncapped KV</td>
+              <td><strong>19.01 GB Wired Total</strong> (16.06 GB Weights + 2.00 GiB Hybrid KV + 512 MiB Cache)</td>
+              <td><span class="card-tag tag-cyan" style="margin:0;">Zero Watchdog Panics on 48 GB M4 Pro</span></td>
+            </tr>
+            <tr>
               <td><strong>KV Cache Memory @ 32,768 Tokens</strong></td>
-              <td>8.19 GB (Standard 64-Layer FP16 KV)</td>
-              <td><strong>2.15 GB</strong> (Hybrid 16L) → <strong>16.125 MB</strong> ($\hat{\rho}_{\text{KV}}$ Density)</td>
+              <td>8.19 GB / 8.00 GiB (Standard 64-Layer FP16 KV)</td>
+              <td><strong>2.15 GB / 2.00 GiB</strong> (Hybrid 16L) → <strong>16.125 MB</strong> ($\hat{\rho}_{\text{KV}}$ Density)</td>
               <td><span class="card-tag tag-cyan" style="margin:0;">508.0× KV RAM Reduction</span></td>
             </tr>
             <tr>
               <td><strong>KV Cache Memory @ 1,000,000 Tokens</strong></td>
-              <td>244.14 GB (Immediate macOS Kernel Panic)</td>
+              <td>244.14 GiB / 250.00 GB (Immediate macOS Kernel Panic)</td>
               <td><strong>16.125 MB Full / 4.016 MB Rank-16</strong> (Fits in M4 Pro L2 Cache)</td>
-              <td><span class="card-tag tag-violet" style="margin:0;">15,140× – 62,256× RAM Cut</span></td>
+              <td><span class="card-tag tag-violet" style="margin:0;">15,140× (GiB) / 15,503.9× (MB) – 62,256.8× Cut</span></td>
             </tr>
             <tr>
               <td><strong>DRAM Bus Traffic per Generated Token</strong></td>
@@ -330,7 +336,7 @@
             <tr>
               <td><strong>Greedy Output Parity &amp; Numerical Stability</strong></td>
               <td>Baseline Reference (Watchdog Panics at `-c 0`)</td>
-              <td><strong>0.00% Parity Loss</strong> · $\delta_{\text{Gauss}} \le 4.318 \times 10^{-7}$ · Zero OOM</td>
+              <td><strong>0.00% Parity Loss</strong> · $\delta_{\text{Gauss}} \le 4.318 \times 10^{-7}$ · 7/7 Metal Kernels PASS</td>
               <td><span class="card-tag tag-emerald" style="margin:0;">100% Bit-Exact &amp; Hardware Fenced</span></td>
             </tr>
           </tbody>
