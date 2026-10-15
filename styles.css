@@ -648,15 +648,18 @@ section {
 .spec-list li {
   font-size: 13px;
   color: var(--text-secondary);
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
+  position: relative;
+  padding-left: 18px;
+  line-height: 1.55;
 }
 
 .spec-list li::before {
   content: "▹";
   color: var(--accent-cyan);
   font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 /* macOS Workstation Simulator */

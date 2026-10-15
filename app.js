@@ -5,7 +5,7 @@ const HERO_LANG = {
   en: {
     motto: "· “Yaadhum Oore Yaavarum Kelir” · Sovereign Local AI Systems Research Project",
     titleHtml: `Sovereign Local AI Research: <span class="gradient-text">Qwen 3.8 27B on Apple M4 Pro</span>`,
-    subtitleHtml: `An independent AI systems research project investigating how to run a 27-billion-parameter hybrid reasoning model locally on a single 48 GB MacBook Pro M4 Pro (<code>273.06 GB/s</code> bus). Discover what capabilities you unlock with <strong>YaadhumAI</strong> — from <strong>32,768-Token Safe Hybrid Inference</strong> and <strong>144.0 MiB Persistent Project Memory</strong> to <strong>Multi-Token Speculative Verification</strong> — while our core mathematical operators remain protected proprietary IP.`,
+    subtitleHtml: `An independent AI systems research project investigating how to run a 27-billion-parameter hybrid reasoning model locally on a single 48 GB MacBook Pro M4 Pro (<code>273.06 GB/s</code> bus). Discover what capabilities you unlock with <strong>YaadhumAI</strong> — from <strong>32,768-Token Safe Hybrid Inference</strong> and <strong>144.0 MiB Persistent Project Memory</strong> to <strong>Multi-Token Speculative Verification</strong>.`,
     btnLabel: "தமிழ் வடிவம் (Tamil)"
   },
   ta: {
@@ -29,14 +29,14 @@ function getLayerTelemetry(layerIdx) {
 • Tensor Geometry    : hidden_size = 5,120 | intermediate_size = 17,408 | head_dim = 256 | num_kv_heads = 4
 • Per-Token KV Cost  : 4,096 Bytes/token in this layer (65,536 B / 64 KiB per token across all 16 Full-Attn layers)
 • 32,768-Ctx Memory  : 128.0 MiB in this layer -> 2.00 GiB total across all 16 Full-Attn layers (4.0× reduction vs 8.00 GiB dense 64L)
-• Proprietary Gate   : Protected by YaadhumAI Stationary Density & Coalesced Block FFN Bandwidth Gate (42.6%–43.0% DRAM saved)`;
+• Hardware Gate      : YaadhumAI Stationary Density & Coalesced Block FFN Bandwidth Gate (42.6%–43.0% DRAM saved)`;
   } else {
     return `⚡ [Layer L${String(layerIdx).padStart(2, '0')} · GatedDeltaNet Linear SSM Layer (SSM Layer #${ssmOrdinal + 1} of 48)]
 • Architectural Role : Constant O(1) Recurrent Sequence State Evolution (Zero Per-Token KV Cache Growth!)
 • Tensor Geometry    : hidden_size = 5,120 | intermediate_size = 17,408 | SSM State Slice = 48 × 128 × 128 FP32 (3.00 MiB)
 • Live Measured L2   : ${ssmL2} | 48-Layer Mean L2 Norm = 38.0601 (Served live via GET :8095/v1/model/radiography)
 • Persistent Bridge  : Backed by 144.0 MiB (150,994,944 B) .openmodels/memory/ssm_state.bin attached at 0x11d604000
-• Proprietary Gate   : Coalesced Block FFN Skipping (1.34 ms GPU execution, 1.38×–1.60× speedup on Apple M4 Pro)`;
+• Hardware Gate      : Coalesced Block FFN Skipping (1.34 ms GPU execution, 1.38×–1.60× speedup on Apple M4 Pro)`;
   }
 }
 
@@ -63,7 +63,7 @@ const CONTEXT_HORIZONS = [
     stdPct: 38,
     hybrid16L: "512.0 MiB KV (16.71 GB Wired Total · 4.0× KV Cut)",
     hybridPct: 35,
-    quantumDensity: "16.125 MB Stationary Operator (Proprietary IP · 127× KV Cut)",
+    quantumDensity: "16.125 MB Stationary Operator (127× KV Cut · L2 Cache Resident)",
     quantumPct: 4,
     latency: "Safe within 48 GB M4 Pro Unified Memory · 100% Warm Prompt Cache Hit"
   },
@@ -146,35 +146,35 @@ const SPEED_STAGES = [
   }
 ];
 
-// 5. Proprietary Research Modules (IP-Protected Outcomes)
+// 5. Core Memory & Bandwidth Research Modules
 const FIVE_VECTORS = [
   {
     chip: "Module 1 · Stationary Density Memory",
-    title: "Proprietary Module 1: Stationary Quantum-Inspired KV State Operator",
+    title: "Module 1: Stationary Quantum-Inspired KV State Operator",
     metric: "16.125 MB Constant Footprint · 15,503.9× KV Reduction @ 1M Tokens · 0.9820–0.9982 Live Parity",
-    mechanism: `Replaces unbounded O(N) token cache growth on historical middle context with a fixed-size stationary state operator while preserving exact attention sinks, high-surprise landmarks, and local recency windows. Core update equations and subspace calibrations are protected YaadhumAI IP.`
+    mechanism: `Replaces unbounded O(N) token cache growth on historical middle context with a fixed-size stationary state operator while preserving exact attention sinks, high-surprise landmarks, and local recency windows.`
   },
   {
     chip: "Module 2 · Coalesced Block FFN Gate",
-    title: "Proprietary Module 2: Coalesced Block SwiGLU Skipping & Residual Sketch",
+    title: "Module 2: Coalesced Block SwiGLU Skipping & Residual Sketch",
     metric: "1.34 ms GPU Execution (1.38×–1.60× Speedup) · 42.6%–43.0% DRAM Saved (-4.90 GB/tok) · 92.06% Recall",
     mechanism: `Skips inactive 128-column blocks in the 5120×17408 FFN down-projection (sparse_block_down_gemv) while recovering pruned semantic directions via a calibrated multi-rank subspace sketch (raising live cosine parity from 0.6300 to 0.9870–0.9950).`
   },
   {
     chip: "Module 3 · Deferred Value Subspace",
-    title: "Proprietary Module 3: Distributive Low-Rank Value Subspace Compression",
+    title: "Module 3: Distributive Low-Rank Value Subspace Compression",
     metric: "2.00×–4.00× Value Cache Cut · 0.9962 (T=9) to 0.9992 (T=35) Live Cosine Parity · 0.238 ms GPU Kernel",
     mechanism: `Projects Value vectors into a calibrated centered orthonormal subspace prior to caching and applies reconstruction once per head after attention aggregation (deferred_value_project), cutting Value DRAM traffic in half with near-lossless fidelity.`
   },
   {
     chip: "Module 4 · Phase-Protected Key Cache",
-    title: "Proprietary Module 4: Centered Phase-Coherent Key Quantization & Nodal Knots",
+    title: "Module 4: Centered Phase-Coherent Key Quantization & Nodal Knots",
     metric: "4.0×–7.1× Key Bandwidth Cut · 0.9993–0.9998 Polar Cosine Similarity · 13.03× Phase Sensitivity Ratio",
     mechanism: `Protects RoPE phase angles (13.03× more sensitive than amplitude) using per-channel bias centering and non-uniform polar quantization (polar_key_gemv) alongside sink-preserving nodal knot interpolation (ephemeris_attention_knots).`
   },
   {
     chip: "Module 5 · Gauss Invariant & Ternary GEMV",
-    title: "Proprietary Module 5: Continuous Numerical Drift Guard & Multiplication-Free Ternary Gather",
+    title: "Module 5: Continuous Numerical Drift Guard & Multiplication-Free Ternary Gather",
     metric: "GPU Drift δ ≤ 4.318 × 10⁻⁷ (0.0 In-Process) · 100% FP Multipliers Eliminated (25.9% Zeros Omitted)",
     mechanism: `Verifies matrix-vector integrity in O(1) time via precomputed control-sum invariants (gauss_control_sum) and eliminates floating-point multiplications in ternary weight paths.`
   }
@@ -254,7 +254,7 @@ open "/Users/prabaharan/yaadhum_ncp/YaadhumAI.app"
   }
 ];
 
-// 7. macOS Workstation Tabs (100% Reconciled & IP-Safe)
+// 7. macOS Workstation Tabs (100% Reconciled)
 const WORKSTATION_TABS = {
   8: {
     title: "Tab 8 · Model Radiography (5 Live 64-Layer & Memory Tomography Views)",
@@ -283,7 +283,7 @@ const WORKSTATION_TABS = {
   2: {
     title: "Tab 2 · Quantum KV Lab — Stationary Memory & 1M Horizon Research",
     badge: "16.125 MB Stationary Operator · 15,503.9× Cut @ 1M Tokens",
-    content: `⚛️ [Proprietary Quantum-Classical Memory Research Lab]
+    content: `⚛️ [Quantum-Classical Stationary Memory Research Lab]
 • Stationary Operator: Compresses historical middle context into a bounded 16.125 MB operator (4.016 MB at Rank-16) while preserving exact attention sinks and high-surprise landmarks.
 • 32k Context RAM    : 2.00 GiB (Architectural Hybrid) -> 16.125 MB (Stationary Operator · 508.0× reduction vs 8.19 GB dense).
 • 1M Context RAM     : 16.125 MB constant O(1) footprint vs 244.14 GiB classical OOM crash (15,503.9× MB / 15,140× GiB reduction).
@@ -348,7 +348,7 @@ const RADIOGRAPHY_SUBTABS = {
   },
   quantumVirtualizer: {
     label: "3 · Quantum 1M Virtualizer (.quantumVirtualizer)",
-    text: `🌌 [Radiography Subtab 3: 1-Million-Token Horizon KV Virtualizer (Proprietary Research IP)]
+    text: `🌌 [Radiography Subtab 3: 1-Million-Token Horizon KV Virtualizer]
 • Classical 64L KV @ 1M Tokens : 244.14 GiB / 250.00 GB (Immediate macOS Kernel Panic on 48 GB M4 Pro)
 • Hybrid 16L KV @ 1M Tokens    :  61.04 GiB /  65.54 GB (Exceeds 48 GB Unified Memory ceiling)
 • YaadhumAI Stationary Operator: 16.125 MB (Full d×d) / 4.016 MB (Rank-16 Subspace)
@@ -496,7 +496,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <div class="mem-bar-row">
           <div class="mem-bar-label">
-            <span>YaadhumAI Stationary Operator (Proprietary IP)</span>
+            <span>YaadhumAI Stationary Operator (16.125 MB Constant)</span>
             <strong style="color:#34d399;">${c.quantumDensity}</strong>
           </div>
           <div class="mem-bar-track"><div class="mem-bar-fill fill-quantum" style="width:${c.quantumPct}%;"></div></div>
@@ -508,7 +508,7 @@ document.addEventListener('DOMContentLoaded', () => {
 `Context Horizon          : ${c.tokens}
 Standard 64L Dense KV    : ${c.std64L}
 Qwen 3.8 Hybrid (16L KV) : ${c.hybrid16L}
-Stationary Memory (IP)   : ${c.quantumDensity}
+Stationary Operator      : ${c.quantumDensity}
 ──────────────────────────────────────────────────────────────────────────
 Hardware Status          : ${c.latency}`;
     }
